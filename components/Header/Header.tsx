@@ -4,11 +4,6 @@ import styled from "styled-components/native";
 import * as Icon from "@expo/vector-icons";
 import rem from "../../utils/rem";
 import { HeaderProps } from "./Header.types";
-import {
-  useFonts,
-  Roboto_400Regular,
-  Cabin_600SemiBold
-} from "@expo-google-fonts/dev";
 
 const HeaderWrapper = styled.View`
   border-bottom-color: rgba(0, 0, 0, 0.1);
@@ -24,18 +19,27 @@ const HeaderWrapper = styled.View`
 
 const TitleBlockContainer = styled.View`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 `;
 
-const TitleBlock = styled.Text`
+const Title = styled.Text`
+  font-family: 'Cabin_600SemiBold';
   font-size: ${rem(3)};
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
-  padding-top: 30px;
-  
-`; 
+  padding-top: ${rem(3.75)};
+`;
+
+const Trademark = styled.Text`
+  font-size: ${rem(1)};
+  font-family: 'Roboto_400Regular';
+  font-variant: small-caps;
+  padding-top: ${rem(2)};
+`;
 
 const Header: React.FC<HeaderProps> = ({
   user,
@@ -46,9 +50,8 @@ const Header: React.FC<HeaderProps> = ({
   return (
     <HeaderWrapper>
       <TitleBlockContainer>
-        <TitleBlock>
-          <Text>Cryptly</Text>
-        </TitleBlock>
+          <Title>Cryptly</Title>
+          <Trademark>TM</Trademark>
       </TitleBlockContainer>
     </HeaderWrapper>
   );
