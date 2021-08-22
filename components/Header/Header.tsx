@@ -4,6 +4,7 @@ import styled from "styled-components/native";
 import * as Icon from "@expo/vector-icons";
 import rem from "../../utils/rem";
 import { HeaderProps } from "./Header.types";
+import LogoComponent from '../Logo/Logo';
 
 const HeaderWrapper = styled.View`
   border-bottom-color: rgba(0, 0, 0, 0.1);
@@ -41,6 +42,20 @@ const Trademark = styled.Text`
   padding-top: ${rem(2)};
 `;
 
+const LogoColumn = styled.View`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-top: ${rem(5)};
+  padding-right: ${rem(0.75)};
+`;
+
+const LogoContainer = styled.View`
+  width: ${rem(3.5)};
+  height: ${rem(3.5)};
+`;
+
 const Header: React.FC<HeaderProps> = ({
   user,
   onLogin,
@@ -50,8 +65,13 @@ const Header: React.FC<HeaderProps> = ({
   return (
     <HeaderWrapper>
       <TitleBlockContainer>
-          <Title>Cryptly</Title>
-          <Trademark>TM</Trademark>
+        <LogoColumn>
+          <LogoContainer>
+            <LogoComponent></LogoComponent>
+          </LogoContainer>
+        </LogoColumn>
+        <Title>Cryptly</Title>
+        <Trademark>TM</Trademark>
       </TitleBlockContainer>
     </HeaderWrapper>
   );
