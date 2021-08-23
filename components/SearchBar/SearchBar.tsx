@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components/native";
 import { SearchBarProps } from "./SearchBar.types";
 import rem from "../../utils/rem";
+import {Dimensions} from 'react-native';
 
 const SearchBarContainer = styled.View`
   background-color: #e2e2e2;
@@ -14,10 +15,10 @@ const SearchBarContainer = styled.View`
   width: 100%;
 `;
 
-const SearchBarField = styled.TextInput`
+const SearchBarField = styled.TextInput<SearchBarProps>`
   height: ${rem(4)};
-  border-radius: ${rem(4)};
   width: 80%;
+  border-radius: ${rem(4)};
   padding: 0 ${rem(2)} 0 ${rem(2)};
   border: ${rem(0.125)} solid #cccccc;
   background-color: white;
@@ -36,6 +37,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
   onTermChanged,
 }: SearchBarProps) => {
   const [searchTerm, setSearchTerm] = useState(term);
+  const fieldWidth = Dimensions.get('window').width;
 
   const handleSearchTermChange = (term: string) => {
     setSearchTerm(term);
@@ -47,7 +49,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
   return (
     <SearchBarContainer>
       <SearchBarLabel>Search for:</SearchBarLabel>
-      <SearchBarField></SearchBarField>
+      <SearchBarField fieldWidth={fieldWidth}></SearchBarField>
     </SearchBarContainer>
   );
 };

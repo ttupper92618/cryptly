@@ -39,7 +39,6 @@ export default function App() {
       <Container>
         <Header></Header>
         <SearchBar></SearchBar>
-        <StyledText>Nothing to see here yet holmes!</StyledText>
       </Container>
     );
   }
