@@ -9,8 +9,10 @@ import AppLoading from 'expo-app-loading';
 import {
   useFonts,
   Roboto_400Regular,
+  Roboto_500Medium,
   Cabin_600SemiBold
 } from "@expo-google-fonts/dev";
+import SearchBar from './components/SearchBar/SearchBar';
 
 const Container = styled.View`
   flex: 1;
@@ -26,7 +28,8 @@ const StyledText = styled.Text`
 export default function App() {
   let [fontsLoaded] = useFonts({
     Cabin_600SemiBold,
-    Roboto_400Regular
+    Roboto_400Regular,
+    Roboto_500Medium
   });
 
   if (!fontsLoaded) {
@@ -35,6 +38,7 @@ export default function App() {
     return (
       <Container>
         <Header></Header>
+        <SearchBar></SearchBar>
         <StyledText>Nothing to see here yet holmes!</StyledText>
       </Container>
     );
